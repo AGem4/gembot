@@ -1,4 +1,4 @@
-function assign(reaction, user, roleChannel) {
+async function assign(reaction, user, roleChannel) {
     // No role assignment for bots
     if (user.bot) return
     const server = reaction.message.guild
@@ -7,7 +7,7 @@ function assign(reaction, user, roleChannel) {
     if (channel.name === roleChannel) {
 
         // Fetch server roles
-        const role = server.roles.fetch()
+        const role = await server.roles.fetch()
             .then(roles => {
                 return roles.find(role =>
                     role.name === reaction.message.content).id
