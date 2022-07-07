@@ -1,0 +1,32 @@
+{
+    "aetherWorlds": [
+        "A-Adamantoise",
+        "A-Cactuar",
+        "A-Faerie",
+        "A-Gilgamesh",
+        "A-Jenova",
+        "A-Midgardsormr",
+        "A-Sargatanas",
+        "A-Siren"
+    ],
+    "crystalWorlds": [
+        "C-Balmung",
+        "C-Brynhildr",
+        "C-Coeurl",
+        "C-Diabolos",
+        "C-Goblin",
+        "C-Malboro",
+        "C-Mateus",
+        "C-Zalera"
+    ],
+    "primalWorlds": [
+        "P-Behemoth",
+        "P-Excalibur",
+        "P-Exodus",
+        "P-Famfrit",
+        "P-Hyperion",
+        "P-Lamia",
+        "P-Leviathan",
+        "P-Ultros"
+    ]
+}
