@@ -68,6 +68,22 @@ const commands = [
             option.setName('role')
                 .setDescription('Target role')
                 .setRequired(true)),
+
+    new SlashCommandBuilder()
+        .setName('warn')
+        .setDescription('Warn a user with a given reason')
+        .addUserOption(option =>
+            option.setName('user')
+                .setDescription('Target user')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('reason')
+                .setDescription('Warning reason')
+                .setRequired(true))
+                .addIntegerOption(option =>
+                    option.setName('severity')
+                        .setDescription('Warning severity')
+                        .setRequired(true)),
 ]
     .map(command => command.toJSON());
 

@@ -37,7 +37,9 @@ client.on('messageCreate', async message => {
 
 client.on('guildMemberAdd', async member => {
     const channel = member.guild.channels.cache.find(ch => ch.name === 'chit-chat');
-    const welcome = `Welcome ${member.user.username} to ${member.guild.name} 🎉 We all hope that you have a great time while you are here. Please make sure to take a quick look at welcome channel for the rules, and get-server-roles channel to pick your in game server. 😃`
+    const welcomeChannel = member.guild.channels.cache.find(ch => ch.name === 'welcome');
+    const roleChannel = member.guild.channels.cache.find(ch => ch.name === 'get-server-roles');
+    const welcome = `Welcome ${member.user.username} to ${member.guild.name} 🎉 We all hope that you have a great time while you are here. Please make sure to take a quick look at ${welcomeChannel} channel for the rules, and ${roleChannel} channel to pick your in game server. 😃`
     channel.send(welcome)
 })
 
@@ -83,12 +85,21 @@ client.on('interactionCreate', async interaction => {
     if (commandName === 'kick') {
         const user = options.getMember("user")
         const reason = options.getString("reason")
-        moderationCmd.kick(user, reason)
+        moderationCmd.kick(interaction, user, reason)
     }
 
     if (commandName === 'unban') {
         const user = options.getUser("user")
         moderationCmd.unban(interaction, user)
+    }
+
+    if (commandName === 'warn') {
+        const user = options.getUser("user")
+        const reason = options.getString("reason")
+        const severity = options.getInteger("severity")
+        
+        moderationCmd.warn(interaction, user, reason, severity)
+
     }
 
 });

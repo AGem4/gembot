@@ -3,6 +3,7 @@ const { aetherWorlds, primalWorlds, crystalWorlds } = require(`${__basedir}/etc/
 function setup(interaction) {
 
     interaction.channel.send("Aether");
+    console.log(aetherWorlds)
     for (const world of aetherWorlds) {
         interaction.channel.send(world)
             .then(message => message.react("👍"))
