@@ -57,6 +57,19 @@ client.on('interactionCreate', async interaction => {
         roleCmd.setup(interaction)
     }
 
+    if (commandName === 'rolegive') {
+        const user = options.getMember("user")
+        const role = options.getString("role")
+        roleCmd.give(interaction, user, role)
+    }
+
+    if (commandName === 'roletake') {
+        const user = options.getMember("user")
+        const role = options.getString("role")
+
+        roleCmd.take(interaction, user, role)
+    }
+
     // Moderation commands
     if (commandName === 'channelclear') {
         moderationCmd.clear(interaction)
