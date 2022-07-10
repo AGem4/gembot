@@ -1,32 +1,32 @@
 {
     "aetherWorlds": [
-        "A-Adamantoise",
-        "A-Cactuar",
-        "A-Faerie",
-        "A-Gilgamesh",
-        "A-Jenova",
-        "A-Midgardsormr",
-        "A-Sargatanas",
-        "A-Siren"
+        "Adamantoise",
+        "Cactuar",
+        "Faerie",
+        "Gilgamesh",
+        "Jenova",
+        "Midgardsormr",
+        "Sargatanas",
+        "Siren"
     ],
     "crystalWorlds": [
-        "C-Balmung",
-        "C-Brynhildr",
-        "C-Coeurl",
-        "C-Diabolos",
-        "C-Goblin",
-        "C-Malboro",
-        "C-Mateus",
-        "C-Zalera"
+        "Balmung",
+        "Brynhildr",
+        "Coeurl",
+        "Diabolos",
+        "Goblin",
+        "Malboro",
+        "Mateus",
+        "Zalera"
     ],
     "primalWorlds": [
-        "P-Behemoth",
-        "P-Excalibur",
-        "P-Exodus",
-        "P-Famfrit",
-        "P-Hyperion",
-        "P-Lamia",
-        "P-Leviathan",
-        "P-Ultros"
+        "Behemoth",
+        "Excalibur",
+        "Exodus",
+        "Famfrit",
+        "Hyperion",
+        "Lamia",
+        "Leviathan",
+        "Ultros"
     ]
 }

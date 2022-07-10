@@ -1,27 +1,42 @@
+
 const { aetherWorlds, primalWorlds, crystalWorlds } = require(`${__basedir}/etc/worlds.json`)
+const reactEmojis = require(`${__basedir}/etc/reactemoji.json`)
 
-function setup(interaction) {
+async function setup(interaction) {
 
-    interaction.channel.send("Aether");
-    console.log(aetherWorlds)
+    let i = 0
+    let dcText = "Aether\n"
     for (const world of aetherWorlds) {
-        interaction.channel.send(world)
-            .then(message => message.react("👍"))
-            .catch(console.error);
+        dcText += `${i}.${world}\n`
+        i++
     }
-    interaction.channel.send("Crystal");
+    interaction.channel.send(dcText).
+        then(message => { for (emoji of reactEmojis) message.react(emoji) }
+        )
+        .catch(console.error)
+
+    i = 0
+    dcText = "Crystal\n"
     for (const world of crystalWorlds) {
-        interaction.channel.send(world)
-            .then(message => message.react("👍"))
-            .catch(console.error);
+        dcText += `${i}.${world}\n`
+        i++
     }
-    interaction.channel.send("Primal");
+    interaction.channel.send(dcText).
+        then(message => { for (emoji of reactEmojis) message.react(emoji) }
+        )
+        .catch(console.error)
+
+    i = 0
+    dcText = "Primal\n"
     for (const world of primalWorlds) {
-        interaction.channel.send(world)
-            .then(message => message.react("👍"))
-            .catch(console.error);
+        dcText += `${i}.${world}\n`
+        i++
     }
-    
+    interaction.channel.send(dcText).
+        then(message => { for (emoji of reactEmojis) message.react(emoji) }
+        )
+        .catch(console.error)
+
     interaction.reply({ content: 'Processing...', fetchReply: true })
         .then(message => message.delete())
         .catch(console.error)

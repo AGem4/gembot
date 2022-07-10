@@ -5,6 +5,7 @@ const { roleCmd } = require("./commands/role/");
 const { moderationCmd } = require("./commands/moderation/");
 const { userCmd } = require("./commands/user/");
 
+
 // Create a new client instance
 const client = new Client({
     intents: [
@@ -23,14 +24,17 @@ client.once('ready', () => {
 
 // Custom prefix, because why not
 client.on('messageCreate', async message => {
-    const prefix = "Bot"
+    const prefix = "#!Bot"
     const keywords = message.content.split(" ")
     const args = keywords.slice(2)
-    // console.log(message.content)
-    if (keywords[0] === prefix)
-        for (const command of Object.keys(userCmd)) {
-            if (keywords[1] === command) {
-                userCmd[command](message, ...args)
+
+        // console.log(message.content)
+        if (keywords[0] === prefix) {
+            for (const command of Object.keys(userCmd)) {
+                if (keywords[1] === command) {
+                    //
+                    userCmd[command](message, args)
+                }
             }
         }
 })
@@ -51,7 +55,7 @@ client.on('interactionCreate', async interaction => {
             .catch(console.error);
         return
     };
-
+    
     const { commandName, options } = interaction;
 
     // Role commands
@@ -97,7 +101,7 @@ client.on('interactionCreate', async interaction => {
         const user = options.getUser("user")
         const reason = options.getString("reason")
         const severity = options.getInteger("severity")
-        
+
         moderationCmd.warn(interaction, user, reason, severity)
 
     }
@@ -117,7 +121,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         }
     }
 
-    roleCmd.assign(reaction, user, "get-server-roles")
+    roleCmd.reactAssign(reaction, user, "get-server-roles")
 
 });
 
@@ -134,7 +138,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
         }
     }
 
-    roleCmd.remove(reaction, user, "get-server-roles")
+    roleCmd.reactRemove(reaction, user, "get-server-roles")
 
 });
 
