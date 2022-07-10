@@ -8,17 +8,21 @@ async function reactRemove(reaction, user, roleChannel) {
 
     if (channel.name === roleChannel) {
         let roleName = ""
-        const messageLines = reaction.message.content.split("\n")
-        if (messageLines[0] === "Aether")
-            roleName += "A-"
-        else if (messageLines[0] === "Crystal")
-            roleName += "C-"
-        else if (messageLines[0] === "Primal")
-            roleName += "P-"
+        if (reaction.message.content.includes("IRL"))
+            roleName = "IRL"
+        else {
+            const messageLines = reaction.message.content.split("\n")
+            if (messageLines[0] === "Aether")
+                roleName += "A - "
+            else if (messageLines[0] === "Crystal")
+                roleName += "C - "
+            else if (messageLines[0] === "Primal")
+                roleName += "P - "
 
-        const serverIndex = reactEmojis.findIndex(emoji =>
-            emoji === reaction.emoji.name)
-        roleName += messageLines[serverIndex + 1].slice(2)
+            const serverIndex = reactEmojis.numbers.findIndex(emoji =>
+                emoji === reaction.emoji.name)
+            roleName += messageLines[serverIndex + 1].slice(2)
+        }
 
         const role = await server.roles.fetch()
             .then(roles => {

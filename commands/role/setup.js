@@ -11,7 +11,7 @@ async function setup(interaction) {
         i++
     }
     interaction.channel.send(dcText).
-        then(message => { for (emoji of reactEmojis) message.react(emoji) }
+        then(message => { for (emoji of reactEmojis.numbers) message.react(emoji) }
         )
         .catch(console.error)
 
@@ -22,7 +22,7 @@ async function setup(interaction) {
         i++
     }
     interaction.channel.send(dcText).
-        then(message => { for (emoji of reactEmojis) message.react(emoji) }
+        then(message => { for (emoji of reactEmojis.numbers) message.react(emoji) }
         )
         .catch(console.error)
 
@@ -33,9 +33,16 @@ async function setup(interaction) {
         i++
     }
     interaction.channel.send(dcText).
-        then(message => { for (emoji of reactEmojis) message.react(emoji) }
+        then(message => { for (emoji of reactEmojis.numbers) message.react(emoji) }
         )
         .catch(console.error)
+
+    const irlMessage = 
+    "Signup for IRL threads\nIf you would like to get access to the threads that allow for more in depth discussions of IRL topics. Then please click on the reaction to have the role added to your account."
+    interaction.channel.send(irlMessage).
+        then(message => message.react(reactEmojis.vote[0]))
+        .catch(console.error)
+
 
     interaction.reply({ content: 'Processing...', fetchReply: true })
         .then(message => message.delete())
